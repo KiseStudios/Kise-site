@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kise Studios — Estúdio de programação especializado em sites, aplicativos e soluções digitais modernas.">
+  <title>Kise Studios - Início</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --accent: #00aaff;
+      --dark-bg: #0c0c0e;
+      --text-light: #f5f5f5;
+      --text-muted: #bdbdbd;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--dark-bg);
+      color: var(--text-light);
+      overflow-x: hidden;
+    }
+
+    /* === NAVBAR === */
+    header.navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      background: rgba(20, 20, 20, 0.65);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      transition: background 0.3s ease;
+    }
+
+    header.navbar.scrolled {
+      background: rgba(10, 10, 10, 0.9);
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      padding: 1.2rem 0;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* === HERO === */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* Fundo com logo + partículas */
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 120%;
+      height: 120%;
+      background: url("static/img/LogoKS.png") no-repeat center;
+      background-size: contain;
+      opacity: 0.18;
+      filter: blur(1px);
+      transform: translate(-50%, -50%) scale(1);
+      animation: float 12s ease-in-out infinite alternate;
+      z-index: 0;
+      transition: opacity 0.5s ease, filter 0.5s ease, transform 0.5s ease;
+    }
+
+    @keyframes float {
+      0% { transform: translate(-50%, -50%) scale(1); }
+      100% { transform: translate(-50%, -48%) scale(1.05); }
+    }
+
+    /* Canvas de partículas atrás da logo */
+    #particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: transparent;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 0 1.5rem;
+      animation: fadeInUp 1.5s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #fff, #d8d8d8);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 20px rgba(255,255,255,0.15);
+    }
+
+    .hero-subtitle {
+      margin-top: 15px;
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin-inline: auto;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 30px;
+      background: linear-gradient(90deg, var(--accent), #0077cc);
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(0,170,255,0.4);
+    }
+
+    /* === SEÇÃO DESTAQUES === */
+    .features {
+      background: #111;
+      padding: 100px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 60px;
+      color: #f1f1f1;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      background: #181818;
+      border: 1px solid rgba(255,255,255,0.05);
+      padding: 40px 25px;
+      border-radius: 18px;
+      text-align: center;
+      color: white;
+      text-decoration: none;
+      transition: all 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(0,170,255,0.2);
+    }
+
+    .card-icon {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: var(--accent);
+    }
+
+    .card-title {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .card-text {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* === FOOTER === */
+    .footer {
+      text-align: center;
+      padding: 30px 15px;
+      background: #0a0a0a;
+      color: #999;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    @media (max-width: 600px) {
+      .hero-title { font-size: 2.5rem; }
+      .hero-subtitle { font-size: 1rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <nav class="nav-links">
+      <a href="index.html" class="active">Início</a>
+      <a href="services.html">Serviços</a>
+      <a href="projects.html">Projetos</a>
+      <a href="about.html">Sobre</a>
+      <a href="contact.html">Contato</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <canvas id="particles"></canvas>
+    <div class="hero-content">
+      <h1 class="hero-title">Kise Studios</h1>
+      <p class="hero-subtitle">Soluções digitais, design moderno e desenvolvimento sob medida. Transformamos ideias em tecnologia.</p>
+      <a href="contact.html" class="btn-primary">Fale Conosco</a>
+    </div>
+  </section>
+
+  <!-- DESTAQUES -->
+  <section class="features">
+    <h2 class="section-title">O que fazemos</h2>
+    <div class="cards-grid">
+      <a href="services.html#web" class="feature-card">
+        <div class="card-icon">🌐</div>
+        <h3 class="card-title">Sites Responsivos</h3>
+        <p class="card-text">Criação de sites modernos, rápidos e adaptados a todos os dispositivos.</p>
+      </a>
+      <a href="services.html#apps" class="feature-card">
+        <div class="card-icon">📱</div>
+        <h3 class="card-title">Aplicativos Mobile</h3>
+        <p class="card-text">Apps nativos e híbridos com design intuitivo e desempenho otimizado.</p>
+      </a>
+      <a href="services.html#integrations" class="feature-card">
+        <div class="card-icon">⚙️</div>
+        <h3 class="card-title">Integrações</h3>
+        <p class="card-text">Sistemas conectados, automações e APIs para impulsionar o seu negócio.</p>
+      </a>
+      <a href="services.html#consulting" class="feature-card">
+        <div class="card-icon">💡</div>
+        <h3 class="card-title">Consultoria & UX</h3>
+        <p class="card-text">Análise, estratégia e experiência do usuário focadas em resultados.</p>
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> Kise Studios. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Navbar reativa ao scroll
+    window.addEventListener("scroll", () => {
+      const nav = document.querySelector(".navbar");
+      nav.classList.toggle("scrolled", window.scrollY > 80);
+    });
+
+    // === Sistema de partículas leves ===
+    const canvas = document.getElementById("particles");
+    const ctx = canvas.getContext("2d");
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    const mouse = { x: null, y: null };
+    window.addEventListener("mousemove", e => {
+      mouse.x = e.x;
+      mouse.y = e.y;
+    });
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2.5 + 0.5;
+        this.speedX = (Math.random() - 0.5) * 0.4;
+        this.speedY = (Math.random() - 0.5) * 0.4;
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(0, 170, 255, 0.25)";
+        ctx.fill();
+      }
+    }
+
+    function initParticles() {
+      particles = [];
+      for (let i = 0; i < 90; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animateParticles);
+    }
+
+    initParticles();
+    animateParticles();
+  </script>
+</body>
+</html>

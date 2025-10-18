@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conheça os projetos realizados pela Kise Studios: sites, apps, integrações e mais.">
+  <title>Projetos - Kise Studios</title>
+  <link rel="stylesheet" href="static/css/style.css">
+  <style>
+    /* ===== ESTILO GERAL ===== */
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(180deg, #0e0e0e, #1a1a1a);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      background: rgba(15, 15, 15, 0.85);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px 0;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #ccc;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a.active,
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .nav-links a.active::after,
+    .nav-links a:hover::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      width: 40%;
+      height: 2px;
+      background: #fff;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    /* ===== SEÇÃO DE PROJETOS ===== */
+    .section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+      background: linear-gradient(90deg, #fff, #aaa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* ===== FILTROS E BUSCA ===== */
+    .project-controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 50px;
+    }
+
+    .search-input {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 30px;
+      width: 250px;
+      outline: none;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    .search-input:focus {
+      background: rgba(255, 255, 255, 0.2);
+      width: 280px;
+    }
+
+    .filter-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: none;
+      color: #fff;
+      border-radius: 20px;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .filter-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .filter-btn.active {
+      background: #fff;
+      color: #000;
+      font-weight: 600;
+    }
+
+    /* ===== GRADE DE PROJETOS ===== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      overflow: hidden;
+      text-align: left;
+      padding: 25px;
+      transition: all 0.4s ease, opacity 0.4s ease;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-card.hide {
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+    }
+
+    .project-thumb {
+      height: 140px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #555, #777);
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .card-text {
+      color: #ccc;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* ===== MODAL ===== */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .modal.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-content {
+      background: #111;
+      border-radius: 15px;
+      max-width: 500px;
+      padding: 40px;
+      position: relative;
+      color: #fff;
+      text-align: left;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+      animation: fadeUp 0.4s ease;
+    }
+
+    @keyframes fadeUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: #0e0e0e;
+      text-align: center;
+      padding: 30px 0;
+      font-size: 0.9rem;
+      color: #999;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* ===== RESPONSIVIDADE ===== */
+    @media (max-width: 600px) {
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .filter-btn {
+        padding: 8px 14px;
+        font-size: 0.85rem;
+      }
+
+      .modal-content {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="container">
+      <nav class="nav-links">
+        <a href="index.html">Início</a>
+        <a href="services.html">Serviços</a>
+        <a href="projects.html" class="active">Projetos</a>
+        <a href="about.html">Sobre</a>
+        <a href="contact.html">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1 class="section-title">Projetos</h1>
+
+        <div class="project-controls">
+          <input type="search" id="project-search" class="search-input" placeholder="Buscar projetos…" aria-label="Buscar projetos">
+          <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="web">🌐 Web</button>
+            <button class="filter-btn" data-filter="mobile">📱 Mobile</button>
+            <button class="filter-btn" data-filter="ecommerce">🛒 E-commerce</button>
+            <button class="filter-btn" data-filter="integracao">🔗 Integração</button>
+            <button class="filter-btn" data-filter="bancodados">💾 Banco de Dados</button>
+          </div>
+        </div>
+
+        <div class="projects-grid">
+          <div class="card project-card" data-category="web ecommerce" data-title="Loja Virtual">
+            <div class="project-thumb" style="background: linear-gradient(135deg, #4f46e5, #6366f1);"></div>
+            <h3 class="card-title">Loja Virtual</h3>
+            <p class="card-text">Plataforma de e-commerce completa com carrinho, pagamentos e painel administrativo.</p>
+          </div>
+
+          <div class="card project-card" data-category="web" data-title="Portal Educacional">
+            <div class="project-thumb" style="background: linear-gradient(135deg, #f43f5e, #ec4899);"></div>
+            <h3 class="card-title">Portal Educacional</h3>
+            <p class="card-text">Portal para cursos online, com streaming, trilhas de aprendizado e área do estudante.</p>
+          </div>
+
+          <div class="card project-card" data-category="mobile" data-title="App Delivery">
+            <div class="project-thumb" style="background: linear-gradient(135deg, #06b6d4, #22d3ee);"></div>
+            <h3 class="card-title">App Delivery</h3>
+            <p class="card-text">Aplicativo mobile para entrega de refeições, rastreio em tempo real e sistema de recompensas.</p>
+          </div>
+
+          <div class="card project-card" data-category="mobile integracao" data-title="App Finanças">
+            <div class="project-thumb" style="background: linear-gradient(135deg, #22c55e, #4ade80);"></div>
+            <h3 class="card-title">App Finanças</h3>
+            <p class="card-text">Aplicativo de gerenciamento financeiro com integração bancária e gráficos interativos.</p>
+          </div>
+
+          <div class="card project-card" data-category="integracao" data-title="Sistema ERP">
+            <div class="project-thumb" style="background: linear-gradient(135deg, #f97316, #fb923c);"></div>
+            <h3 class="card-title">Sistema ERP</h3>
+            <p class="card-text">Integração de módulos de estoque, vendas e financeiro em uma única plataforma.</p>
+          </div>
+
+          <div class="card project-card" data-category="ecommerce web" data-title="Marketplace Social">
+            <div class="project-thumb" style="background: linear-gradient(135deg, #9333ea, #a855f7);"></div>
+            <h3 class="card-title">Marketplace Social</h3>
+            <p class="card-text">Mercado online com funcionalidades sociais e avaliação entre usuários.</p>
+          </div>
+
+          <div class="card project-card" data-category="bancodados" data-title="Sistema de Gestão de Banco de Dados">
+            <div class="project-thumb" style="background: linear-gradient(135deg, #0ea5e9, #38bdf8);"></div>
+            <h3 class="card-title">Sistema de Gestão de Banco de Dados</h3>
+            <p class="card-text">Ferramenta para monitoramento, backup automatizado e visualização de performance de bancos de dados SQL.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="project-modal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button id="modal-close" class="modal-close" aria-label="Fechar modal">×</button>
+      <h3 id="modal-title"></h3>
+      <p id="modal-description"></p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Kise Studios. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const cards = document.querySelectorAll('.project-card');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const searchInput = document.getElementById('project-search');
+    const modal = document.getElementById('project-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDesc = document.getElementById('modal-description');
+    const modalClose = document.getElementById('modal-close');
+
+    // === FILTRO COM ANIMAÇÃO ===
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+
+        cards.forEach(card => {
+          const category = card.dataset.category;
+          if (filter === 'all' || category.includes(filter)) {
+            card.classList.remove('hide');
+          } else {
+            card.classList.add('hide');
+          }
+        });
+      });
+    });
+
+    // === BUSCA COM ANIMAÇÃO ===
+    searchInput.addEventListener('input', e => {
+      const query = e.target.value.toLowerCase();
+      cards.forEach(card => {
+        const title = card.dataset.title.toLowerCase();
+        if (title.includes(query)) {
+          card.classList.remove('hide');
+        } else {
+          card.classList.add('hide');
+        }
+      });
+    });
+
+    // === MODAL ===
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        modal.classList.add('show');
+        modalTitle.textContent = card.dataset.title;
+        modalDesc.textContent = card.querySelector('.card-text').textContent;
+        modal.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    modalClose.addEventListener('click', () => {
+      modal.classList.remove('show');
+      modal.setAttribute('aria-hidden', 'true');
+    });
+
+    modal.addEventListener('click', e => {
+      if (e.target === modal) modal.classList.remove('show');
+    });
+  </script>
+</body>
+</html>
