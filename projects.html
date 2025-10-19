@@ -64,13 +64,15 @@
       text-align: center;
     }
 
-    .section-title {
-      font-size: 2.5rem;
-      margin-bottom: 50px;
-      background: linear-gradient(90deg, #fff, #aaa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    background: linear-gradient(90deg, #fff, #aaa);
+    -webkit-background-clip: text; /* Para navegadores baseados em Webkit (Chrome, Safari) */
+    background-clip: text; /* Propriedade padrão para outros navegadores */
+    -webkit-text-fill-color: transparent;
+}
+
 
     /* ===== FILTROS E BUSCA ===== */
     .project-controls {
