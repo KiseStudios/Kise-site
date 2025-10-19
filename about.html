@@ -64,12 +64,14 @@
     }
 
     .section-title {
-      font-size: 2.5rem;
-      margin-bottom: 40px;
-      background: linear-gradient(90deg, #fff, #aaa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    background: linear-gradient(90deg, #fff, #aaa);
+    -webkit-background-clip: text; /* Para navegadores baseados em Webkit (Chrome, Safari) */
+    background-clip: text; /* Propriedade padrão para outros navegadores */
+    -webkit-text-fill-color: transparent;
+}
+
 
     .lead {
       color: #bbb;
