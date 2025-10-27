@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Entre em contato com a Kise Studios para orçamentos, parcerias e suporte.">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Entre em contato com a Kise Studios para orçamentos, parcerias e suporte." />
   <title>Contato - Kise Studios</title>
-  <link rel="stylesheet" href="static/css/style.css">
   <style>
+    /* ---- estilo igual ao seu original ---- */
     body {
       font-family: 'Poppins', Arial, sans-serif;
       margin: 0;
@@ -14,8 +14,6 @@
       color: #fff;
       overflow-x: hidden;
     }
-
-    /* ===== NAVBAR ===== */
     .navbar {
       background: rgba(15, 15, 15, 0.85);
       backdrop-filter: blur(10px);
@@ -24,184 +22,53 @@
       z-index: 100;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
-
-    .nav-links {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 15px 0;
+    .nav-links { display:flex; justify-content:center; gap:30px; padding:15px 0; }
+    .nav-links a { text-decoration:none; color:#ccc; font-weight:500; position:relative; transition:.3s; }
+    .nav-links a.active, .nav-links a:hover { color:#fff; }
+    .nav-links a.active::after, .nav-links a:hover::after {
+      content:""; position:absolute; bottom:-5px; left:50%; width:40%; height:2px; background:#fff; transform:translateX(-50%); border-radius:2px;
     }
-
-    .nav-links a {
-      text-decoration: none;
-      color: #ccc;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .nav-links a.active,
-    .nav-links a:hover {
-      color: #fff;
-    }
-
-    .nav-links a.active::after,
-    .nav-links a:hover::after {
-      content: "";
-      position: absolute;
-      bottom: -5px;
-      left: 50%;
-      width: 40%;
-      height: 2px;
-      background: #fff;
-      transform: translateX(-50%);
-      border-radius: 2px;
-    }
-
-    /* ===== SEÇÃO DE CONTATO ===== */
-    .contact-section {
-      padding: 100px 20px;
-      text-align: center;
-    }
-
+    .contact-section { padding:100px 20px; text-align:center; }
     .section-title {
-    font-size: 2.5rem;
-    background: linear-gradient(90deg, #fff, #aaa);
-    -webkit-background-clip: text;
-    background-clip: text;  /* Propriedade padrão */
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 20px;
-}
-
-
-    .contact-subtitle {
-      color: #bbb;
-      max-width: 600px;
-      margin: 0 auto 50px;
-      font-size: 1rem;
+      font-size:2.5rem;
+      background: linear-gradient(90deg,#fff,#aaa);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      margin-bottom:30px;
     }
-
-    /* ===== FORMULÁRIO ===== */
+    .contact-subtitle { color:#bbb; max-width:600px; margin:0 auto 50px; font-size:1rem; }
     .contact-form {
-      max-width: 600px;
-      margin: 0 auto;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 40px;
-      border-radius: 20px;
-      backdrop-filter: blur(6px);
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-      animation: fadeUp 0.6s ease;
+      max-width:600px; margin:0 auto; background:rgba(255,255,255,0.05);
+      padding:40px; border-radius:20px; backdrop-filter: blur(6px);
+      box-shadow:0 5px 20px rgba(0,0,0,0.3); animation:fadeUp .6s ease;
     }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .form-group {
-      margin-bottom: 25px;
-      text-align: left;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 500;
-      color: #ddd;
-    }
-
+    @keyframes fadeUp { from{opacity:0; transform:translateY(30px)} to{opacity:1; transform:translateY(0)} }
+    .form-group { margin-bottom:25px; text-align:left; }
+    label { display:block; margin-bottom:8px; font-weight:500; color:#ddd; }
     input, textarea {
-      width: 100%;
-      padding: 12px 15px;
-      border: none;
-      border-radius: 10px;
-      font-size: 1rem;
-      color: #fff;
-      background: rgba(255, 255, 255, 0.1);
-      outline: none;
-      transition: all 0.3s ease;
+      width:100%; padding:12px 15px; border:none; border-radius:10px; font-size:1rem;
+      color:#fff; background: rgba(255,255,255,0.1); outline:none; transition:all .3s;
     }
-
-    input:focus, textarea:focus {
-      background: rgba(255, 255, 255, 0.2);
-    }
-
-    textarea {
-      resize: none;
-      min-height: 120px;
-    }
-
+    input:focus, textarea:focus { background: rgba(255,255,255,0.2); }
+    textarea { resize:none; min-height:120px; }
     .btn-submit {
-      background: #fff;
-      color: #000;
-      border: none;
-      padding: 12px 25px;
-      font-size: 1rem;
-      font-weight: 600;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      width: 100%;
+      background:#fff; color:#000; border:none; padding:12px 25px; font-size:1rem; font-weight:600;
+      border-radius:30px; cursor:pointer; transition:all .3s; width:100%;
     }
+    .btn-submit:hover { background:#f1f1f1; transform:translateY(-2px); }
+    .contact-info { margin-top:60px; font-size:1rem; color:#ccc; }
+    .contact-info a { color:#38bdf8; text-decoration:none; transition:color .3s; }
+    .contact-info a:hover { color:#60a5fa; }
+    .footer { background:#0e0e0e; text-align:center; padding:30px 0; font-size:.9rem; color:#999; border-top:1px solid rgba(255,255,255,0.05); }
 
-    .btn-submit:hover {
-      background: #f1f1f1;
-      transform: translateY(-2px);
-    }
-      .form-status {
-      margin-top: 20px;
-      min-height: 1.5em;
-      font-size: 0.95rem;
-      color: #ddd;
-      transition: color 0.3s ease;
-    }
+    /* feedback */
+    .feedback { display:none; margin-top:15px; padding:12px; border-radius:10px; font-weight:600; }
+    .feedback.success { background: rgba(56,189,248,0.12); color:#8ee0ff; display:none; }
+    .feedback.error { background: rgba(255, 80, 80, 0.09); color:#ffb3b3; display:none; }
 
-    .form-status.pending {
-      color: #facc15;
-    }
-
-    .form-status.success {
-      color: #4ade80;
-    }
-
-    .form-status.error {
-      color: #f87171;
-    }
-
-    /* ===== CONTATO DIRETO ===== */
-    .contact-info {
-      margin-top: 60px;
-      font-size: 1rem;
-      color: #ccc;
-    }
-
-    .contact-info a {
-      color: #38bdf8;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .contact-info a:hover {
-      color: #60a5fa;
-    }
-
-    /* ===== FOOTER ===== */
-    .footer {
-      background: #0e0e0e;
-      text-align: center;
-      padding: 30px 0;
-      font-size: 0.9rem;
-      color: #999;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    @media (max-width: 600px) {
-      .section-title { font-size: 2rem; }
-      .contact-form { padding: 25px; }
-    }
+    @media (max-width:600px) { .section-title{font-size:2rem} .contact-form{padding:25px} }
   </style>
 </head>
-
 <body>
   <header class="navbar">
     <div class="container">
@@ -223,29 +90,31 @@
         Fale conosco — responderemos o mais rápido possível.
       </p>
 
-          <form id="contact-form" class="contact-form" action="https://formsubmit.co/kisestudios@hotmail.com" method="POST">
-        <input type="hidden" name="_subject" value="Nova mensagem - Kise Studios">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" id="reply-to-field" name="_replyto">
-        <input type="hidden" id="from-field" name="_from">
+      <!-- FORMULÁRIO: MUDAR O ENDPOINT PARA O SEU FORMSPREE -->
+      <form id="contactForm" class="contact-form" method="POST" novalidate>
         <div class="form-group">
-          <label for="E-mail">E-mail</label>
-          <input type="text" id="name" name="Nome" placeholder="Seu e-mail aqui..." required>
+          <label for="name">Nome</label>
+          <input type="text" id="name" name="name" placeholder="Seu nome completo" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required />
         </div>
 
         <div class="form-group">
           <label for="message">Mensagem</label>
-          <textarea id="message" name="Mensagem" placeholder="Escreva sua mensagem aqui..." required></textarea>
+          <textarea id="message" name="message" placeholder="Escreva sua mensagem aqui..." required></textarea>
         </div>
 
         <button type="submit" class="btn-submit">Enviar Mensagem</button>
-      </form>
-            <p id="form-status" class="form-status" aria-live="polite"></p>
 
+        <div id="successMsg" class="feedback success">Mensagem enviada com sucesso! Obrigado.</div>
+        <div id="errorMsg" class="feedback error">Erro ao enviar. Tente novamente mais tarde.</div>
+      </form>
 
       <div class="contact-info">
-        <p>Ou envie um e-mail diretamente para:  
+        <p>Ou envie um e-mail diretamente para:
           <a href="mailto:kisestudios@hotmail.com">kisestudios@hotmail.com</a>
         </p>
       </div>
@@ -259,91 +128,57 @@
   </footer>
 
   <script>
+    // atualiza ano
     document.getElementById('year').textContent = new Date().getFullYear();
-  
-       const contactForm = document.getElementById('contact-form');
-    const formStatus = document.getElementById('form-status');
-    const submitButton = contactForm ? contactForm.querySelector('.btn-submit') : null;
-    const replyToField = document.getElementById('reply-to-field');
-    const fromField = document.getElementById('from-field');
-    const nameField = document.getElementById('name');
-    const emailField = document.getElementById('email');
-    const endpoint = 'https://formsubmit.co/ajax/kisestudios@hotmail.com';
 
-    if (!contactForm || !formStatus || !submitButton || typeof window.fetch !== 'function') {
-      return;
-    }
+    const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqageago";
 
-    const syncEmailMetaFields = () => {
-      const emailValue = emailField ? emailField.value.trim() : '';
-      const nameValue = nameField ? nameField.value.trim() : '';
+    const form = document.getElementById('contactForm');
+    const successMsg = document.getElementById('successMsg');
+    const errorMsg = document.getElementById('errorMsg');
 
-      if (replyToField) {
-        replyToField.value = emailValue;
-      }
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      successMsg.style.display = 'none';
+      errorMsg.style.display = 'none';
 
-      if (fromField) {
-        fromField.value = emailValue ? (nameValue ? `${nameValue} <${emailValue}>` : emailValue) : '';
-      }
-    };
-
-    if (emailField) {
-      emailField.addEventListener('input', syncEmailMetaFields);
-    }
-
-    if (nameField) {
-      nameField.addEventListener('input', syncEmailMetaFields);
-    }
-
-    contactForm.addEventListener('submit', async (event) => {
-      event.preventDefault();
-
-      formStatus.textContent = 'Enviando mensagem...';
-      formStatus.className = 'form-status pending';
-      submitButton.disabled = true;
-
-      syncEmailMetaFields();
-      const formData = new FormData(contactForm);
-
-      if (!formData.get('_replyto') && emailField) {
-        formData.set('_replyto', emailField.value.trim());
-      }
-
-      if (!formData.get('_from') && emailField) {
-        const emailValue = emailField.value.trim();
-        const nameValue = nameField ? nameField.value.trim() : '';
-        if (emailValue) {
-          formData.set('_from', nameValue ? `${nameValue} <${emailValue}>` : emailValue);
-        }
+      // validação simples no front (o HTML já tem required, isso é extra)
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+      if (!name || !email || !message) {
+        errorMsg.textContent = 'Por favor, preencha todos os campos.';
+        errorMsg.style.display = 'block';
+        return;
       }
 
       try {
-        const response = await fetch(endpoint, {
+        // envia para o Formspree via fetch (JSON)
+        const payload = { name, email, message, _subject: "Nova mensagem de contato - Kise Studios" };
+
+        const response = await fetch(FORMSPREE_ENDPOINT, {
           method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: formData,
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
         });
 
-        const data = await response.json().catch(() => ({}));
-
-        if (response.ok && !data.error) {
-          formStatus.textContent = 'Mensagem enviada com sucesso!';
-          formStatus.className = 'form-status success';
-          contactForm.reset();
+        if (response.ok) {
+          successMsg.style.display = 'block';
+          form.reset();
+          // esconde mensagem após alguns segundos
+          setTimeout(() => { successMsg.style.display = 'none'; }, 6000);
         } else {
-          const message = (data.error || data.message || 'Não foi possível enviar sua mensagem. Tente novamente em instantes.');
-          if (message.toLowerCase().includes('ativar') || message.toLowerCase().includes('activate')) {
-            formStatus.textContent = 'Antes de receber as mensagens, verifique o e-mail kisestudios@hotmail.com e clique no link de ativação enviado pelo FormSubmit.';
-          } else {
-            formStatus.textContent = message;
-          }
-          formStatus.className = 'form-status error';
+          // tenta obter mensagem de erro da API (não exibir dados técnicos)
+          const data = await response.json().catch(() => ({}));
+          errorMsg.textContent = data.error || 'Erro ao enviar. Tente novamente mais tarde.';
+          errorMsg.style.display = 'block';
         }
-      } catch (error) {
-        formStatus.textContent = 'Não foi possível enviar sua mensagem agora. Verifique sua conexão e tente novamente.';
-        formStatus.className = 'form-status error';
-      } finally {
-        submitButton.disabled = false;
+      } catch (err) {
+        errorMsg.textContent = 'Erro ao enviar. Verifique sua conexão e tente novamente.';
+        errorMsg.style.display = 'block';
       }
     });
   </script>
