@@ -133,13 +133,23 @@
     }
 
     /* ===== GRADE DE PROJETOS ===== */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+/* Como está agora (causa o esticamento) */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  /* ... */
+}
+
+/* Como deve ficar (CORREÇÃO) */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); /* Troquei 'fit' por 'fill' */
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+  /* Adicione isto para centralizar os cards se sobrarem poucos */
+  justify-content: center;
+}
 
     .project-card {
       background: rgba(255, 255, 255, 0.05);
