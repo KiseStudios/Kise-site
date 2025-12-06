@@ -154,12 +154,19 @@
       opacity: 1;
       transform: translateY(0);
     }
+/* Código ANTIGO (o que está causando o erro) */
+/*
+.project-card.hide {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+}
+*/
 
-    .project-card.hide {
-      opacity: 0;
-      transform: translateY(20px);
-      pointer-events: none;
-    }
+/* Código NOVO (Copie e cole isto no lugar) */
+.project-card.hide {
+  display: none;
+}
 
     .project-card:hover {
       transform: translateY(-8px) scale(1.02);
