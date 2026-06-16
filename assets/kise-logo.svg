@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Kise Studios</title>
+  <desc id="desc">Monograma KS branco sobre fundo preto.</desc>
+  <rect width="256" height="256" fill="#030303"/>
+  <text x="24" y="202" fill="#fff" font-family="Georgia, 'Times New Roman', serif" font-size="188" font-weight="700" letter-spacing="-22">K</text>
+  <text x="103" y="202" fill="#fff" font-family="Georgia, 'Times New Roman', serif" font-size="186" font-weight="700" letter-spacing="-8">S</text>
+  <path d="M136 58c-23 24-39 56-49 96 30-14 50-43 49-96Z" fill="#fff"/>
+  <path d="M151 52c-17 55-45 103-84 145" fill="none" stroke="#030303" stroke-width="13" stroke-linecap="round"/>
+  <path d="M133 70c-10 34-28 63-54 87" fill="none" stroke="#030303" stroke-width="8" stroke-linecap="round"/>
+</svg>
