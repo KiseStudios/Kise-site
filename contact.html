@@ -1,245 +1,148 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Entre em contato com a Kise Studios para orçamentos, parcerias e suporte.">
-  <title>Kise Studios - Contato</title>
-
-  <!-- GOOGLE FONT IGUAL AO INDEX -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    /* ==============================
-       VARIÁVEIS (IGUAL AO INDEX)
-    ============================== */
-
-    :root {
-      --accent: #00aaff;
-      --dark-bg: #0c0c0e;
-      --text-light: #f5f5f5;
-      --text-muted: #bdbdbd;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: var(--dark-bg);
-      color: var(--text-light);
-      overflow-x: hidden;
-    }
-
-    main {
-      padding-top: 110px;
-    }
-
-    /* ==============================
-       NAVBAR (COPIADA 100% DO INDEX)
-    ============================== */
-
-    header.navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      backdrop-filter: blur(10px);
-      background: rgba(20, 20, 20, 0.65);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      transition: background 0.3s ease;
-    }
-
-    header.navbar.scrolled {
-      background: rgba(10, 10, 10, 0.9);
-    }
-
-    .nav-links {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
-      padding: 1.2rem 0;
-    }
-
-    .nav-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-      position: relative;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: white;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .nav-links a.active {
-      color: white;
-    }
-
-    .nav-links a.active::after {
-      width: 100%;
-    }
-
-    /* ==============================
-       SEÇÃO CONTATO
-    ============================== */
-
-    .contact-section {
-      padding: 80px 20px;
-      text-align: center;
-    }
-
-    .section-title {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
-
-    .contact-subtitle {
-      color: var(--text-muted);
-      max-width: 600px;
-      margin: 0 auto 40px;
-    }
-
-    .contact-form {
-      max-width: 600px;
-      margin: 0 auto;
-      background: #111;
-      padding: 40px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-      text-align: left;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: 500;
-      color: var(--text-muted);
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 12px 15px;
-      border-radius: 8px;
-      border: none;
-      background: #1a1a1a;
-      color: white;
-      font-size: 0.95rem;
-    }
-
-    textarea {
-      resize: none;
-      min-height: 120px;
-    }
-
-    .btn-submit {
-      width: 100%;
-      margin-top: 10px;
-      padding: 12px;
-      background: linear-gradient(90deg, var(--accent), #0077cc);
-      border: none;
-      border-radius: 30px;
-      font-weight: 600;
-      color: white;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .btn-submit:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 15px rgba(0,170,255,0.4);
-    }
-
-    .footer {
-      text-align: center;
-      padding: 30px 15px;
-      background: #0a0a0a;
-      color: #999;
-      font-size: 0.9rem;
-      border-top: 1px solid rgba(255,255,255,0.05);
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fale com a Kise Studios e solicite uma proposta para seu site, sistema, integração ou automação.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#f4efe5">
+  <link rel="canonical" href="https://www.kisestudio.com.br/contact.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Contato | Kise Studios">
+  <meta property="og:description" content="Conte seu desafio e converse com a Kise Studios sobre seu próximo projeto digital.">
+  <meta property="og:url" content="https://www.kisestudio.com.br/contact.html">
+  <title>Contato e orçamento | Kise Studios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
-
 <body>
-
-  <!-- NAVBAR -->
-  <header class="navbar">
-    <nav class="nav-links">
-      <a href="index.html">Início</a>
-      <a href="services.html">Serviços</a>
-      <a href="projects.html">Projetos</a>
-      <a href="contact.html" class="active">Contato</a>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Navegação principal">
+      <a class="brand" href="index.html" aria-label="Kise Studios - Início"><span class="brand-mark">KS</span><span class="brand-name">Kise Studios</span></a>
+      <ul class="nav-links">
+        <li><a class="nav-link" href="index.html">Início</a></li>
+        <li><a class="nav-link" href="services.html">Serviços</a></li>
+        <li><a class="nav-link" href="projects.html">Projetos</a></li>
+        <li><a class="nav-link active" href="contact.html" aria-current="page">Contato</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a class="button button-primary button-small nav-cta" href="#formulario">Solicitar proposta</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Abrir menu"><span></span></button>
+      </div>
     </nav>
   </header>
 
-  <!-- CONTEÚDO -->
-  <main>
-    <section class="contact-section">
-      <h1 class="section-title">Entre em Contato</h1>
-      <p class="contact-subtitle">
-        Tem um projeto em mente? Quer tirar dúvidas ou solicitar um orçamento?
-        Fale conosco.
-      </p>
+  <main class="page-main">
+    <section class="page-hero">
+      <div class="container reveal">
+        <span class="eyebrow">Vamos conversar</span>
+        <h1>Conte seu desafio. A gente ajuda a <span class="gradient-text">construir a solução.</span></h1>
+        <p>Preencha o formulário ou chame no WhatsApp. Retornaremos para entender o projeto e orientar os próximos passos.</p>
+      </div>
+    </section>
 
-      <form class="contact-form">
-        <div class="form-group">
-          <label>Nome</label>
-          <input type="text" placeholder="Seu nome completo">
+    <section class="section section-soft" id="formulario">
+      <div class="container contact-layout">
+        <aside class="contact-copy reveal">
+          <span class="eyebrow">Contato direto</span>
+          <h2>Uma boa solução começa com uma boa conversa.</h2>
+          <p>Compartilhe o contexto, mesmo que a ideia ainda esteja no começo. Vamos ajudar a organizar o caminho.</p>
+          <div class="contact-methods">
+            <a class="contact-method" data-whatsapp target="_blank" rel="noopener noreferrer" href="https://wa.me/">
+              <span class="check">✓</span>
+              <div><span>Resposta rápida</span><strong>Conversar pelo WhatsApp</strong></div>
+            </a>
+            <div class="contact-method">
+              <span class="check">✓</span>
+              <div><span>Atendimento</span><strong>Remoto para todo o Brasil</strong></div>
+            </div>
+            <div class="contact-method">
+              <span class="check">✓</span>
+              <div><span>Primeiro passo</span><strong>Entendimento sem compromisso</strong></div>
+            </div>
+          </div>
+        </aside>
+
+        <div class="contact-form-area reveal">
+          <form class="contact-form" id="contact-form" action="https://formspree.io/f/mqageago" method="POST">
+            <input type="hidden" name="_subject" value="Novo contato pelo site Kise Studios">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="name">Nome</label>
+                <input id="name" name="name" type="text" placeholder="Seu nome" autocomplete="name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">E-mail</label>
+                <input id="email" name="email" type="email" placeholder="voce@empresa.com" autocomplete="email" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Telefone</label>
+                <input id="phone" name="phone" type="tel" placeholder="(00) 00000-0000" autocomplete="tel">
+              </div>
+              <div class="form-group">
+                <label for="service">Interesse</label>
+                <select id="service" name="service" required>
+                  <option value="" selected disabled>Selecione um serviço</option>
+                  <option>Site ou landing page</option>
+                  <option>Sistema web</option>
+                  <option>Automação ou integração</option>
+                  <option>Consultoria digital</option>
+                  <option>Outro projeto</option>
+                </select>
+              </div>
+              <div class="form-group form-group-full">
+                <label for="message">Sobre o projeto</label>
+                <textarea id="message" name="message" placeholder="Conte um pouco sobre sua ideia, objetivo ou desafio..." required></textarea>
+              </div>
+              <div class="form-group form-group-full">
+                <button class="button button-primary form-submit" type="submit">
+                  <span class="form-submit-text">Enviar mensagem</span>
+                </button>
+                <p class="form-note">Ao enviar, você concorda em receber nosso contato sobre esta solicitação.</p>
+              </div>
+            </div>
+          </form>
+
+          <section class="form-feedback form-feedback-success" id="form-success" role="status" tabindex="-1" hidden>
+            <span class="feedback-icon" aria-hidden="true">✓</span>
+            <p class="feedback-kicker">Mensagem enviada com sucesso!</p>
+            <h2>Obrigado pelo contato.</h2>
+            <p>Recebemos sua solicitação e retornaremos em até 24 horas úteis.</p>
+            <p>Se preferir um atendimento imediato, fale conosco pelo WhatsApp.</p>
+            <a class="button button-whatsapp" data-whatsapp target="_blank" rel="noopener noreferrer" href="https://wa.me/">Conversar no WhatsApp</a>
+          </section>
+
+          <section class="form-feedback form-feedback-error" id="form-error" role="alert" tabindex="-1" hidden>
+            <span class="feedback-icon" aria-hidden="true">⚠</span>
+            <h2>Não foi possível enviar sua mensagem.</h2>
+            <p>Por favor, tente novamente em alguns instantes ou entre em contato pelo WhatsApp.</p>
+            <div class="feedback-actions">
+              <button class="button button-secondary" id="form-retry" type="button">Tentar novamente</button>
+              <a class="button button-whatsapp" data-whatsapp target="_blank" rel="noopener noreferrer" href="https://wa.me/">Conversar no WhatsApp</a>
+            </div>
+          </section>
         </div>
-
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="seuemail@exemplo.com">
-        </div>
-
-        <div class="form-group">
-          <label>Mensagem</label>
-          <textarea placeholder="Escreva sua mensagem..."></textarea>
-        </div>
-
-        <button class="btn-submit">Enviar Mensagem</button>
-      </form>
+      </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <p>&copy; <span id="year"></span> Kise Studios. Todos os direitos reservados.</p>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about"><a class="brand" href="index.html"><span class="brand-mark">KS</span><span>Kise Studios</span></a><p>Soluções digitais sob medida para empresas que querem trabalhar melhor e crescer com tecnologia.</p></div>
+        <div class="footer-column"><h3>Navegação</h3><ul class="footer-links"><li><a href="index.html">Início</a></li><li><a href="services.html">Serviços</a></li><li><a href="projects.html">Projetos</a></li><li><a href="contact.html">Contato</a></li></ul></div>
+        <div class="footer-column"><h3>Vamos conversar</h3><ul class="footer-links"><li><a data-whatsapp target="_blank" rel="noopener noreferrer" href="https://wa.me/">WhatsApp</a></li><li><a href="#formulario">Solicitar orçamento</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>© <span data-year></span> Kise Studios. Todos os direitos reservados.</p><span>Design e tecnologia com propósito.</span></div>
+    </div>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    window.addEventListener("scroll", () => {
-      const nav = document.querySelector(".navbar");
-      nav.classList.toggle("scrolled", window.scrollY > 80);
-    });
-  </script>
-
+  <a class="whatsapp-float" data-whatsapp target="_blank" rel="noopener noreferrer" href="https://wa.me/" aria-label="Falar com a Kise Studios no WhatsApp">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a9.84 9.84 0 0 0-8.45 14.87L2.05 22l5.25-1.5A9.95 9.95 0 1 0 12.04 2Zm5.8 13.92c-.25.72-1.47 1.37-2.03 1.45-.52.08-1.18.11-1.91-.12-.44-.14-1.01-.33-1.74-.65-3.06-1.32-5.05-4.4-5.2-4.6-.15-.2-1.24-1.64-1.24-3.13s.78-2.23 1.06-2.53c.28-.3.61-.37.81-.37h.59c.19 0 .44-.07.69.53.25.6.84 2.05.91 2.2.08.15.13.33.03.53-.1.2-.15.33-.3.51-.15.18-.31.4-.45.54-.15.15-.3.31-.13.61.18.3.78 1.28 1.67 2.07 1.15 1.02 2.11 1.34 2.41 1.49.3.15.48.13.66-.08.18-.2.76-.89.96-1.19.2-.3.4-.25.68-.15.28.1 1.77.84 2.07.99.3.15.5.23.58.35.07.13.07.73-.18 1.45Z"/></svg>
+  </a>
 </body>
 </html>

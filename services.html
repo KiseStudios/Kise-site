@@ -3,250 +3,163 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Conheça os serviços da Kise Studios: sites, aplicativos, integrações e consultoria.">
-  <title>Serviços - Kise Studios</title>
-
-  <!-- Fonte igual ao index -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="static/css/style.css">
-
-  <style>
-    /* ==============================
-       BASE (IGUAL AO INDEX)
-    ============================== */
-    :root {
-      --accent: #00aaff;
-      --dark-bg: #0c0c0e;
-      --text-light: #f5f5f5;
-      --text-muted: #bdbdbd;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: var(--dark-bg);
-      color: var(--text-light);
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* ==============================
-       NAVBAR (IGUAL AO INDEX)
-    ============================== */
-    header.navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      backdrop-filter: blur(10px);
-      background: rgba(20, 20, 20, 0.65);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      transition: background 0.3s ease;
-    }
-
-    header.navbar.scrolled {
-      background: rgba(10, 10, 10, 0.9);
-    }
-
-    .nav-links {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
-      padding: 1.2rem 0;
-    }
-
-    .nav-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-      position: relative;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: white;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .nav-links a.active {
-      color: white;
-    }
-
-    .nav-links a.active::after {
-      width: 100%;
-    }
-
-    /* ==============================
-       CONTEÚDO (SEU ORIGINAL)
-    ============================== */
-
-    main {
-      padding: 100px 0;
-      padding-top: 190px; /* espaço extra por causa do header fixed */
-    }
-
-    .section-title {
-      font-size: 2.8rem;
-      font-weight: 600;
-      text-align: center;
-      background: linear-gradient(90deg, #fff, #aaa);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 50px;
-    }
-
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 35px;
-    }
-
-    .card {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 20px;
-      padding: 30px 25px;
-      text-align: center;
-      transition: all 0.3s ease;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    .card-icon {
-      font-size: 2.8rem;
-      margin-bottom: 15px;
-      display: inline-block;
-      background: linear-gradient(90deg, #00c6ff, #0072ff);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .card-title {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 10px;
-    }
-
-    .card-text {
-      color: #ccc;
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    .footer {
-      background: #0e0e0e00;
-      text-align: center;
-      padding: 40px 0;
-      font-size: 0.9rem;
-      color: #999;
-      border-top: 1px solid rgba(255, 255, 255, 0.0);
-    }
-
-    @media (max-width: 768px) {
-      .section-title { font-size: 2.2rem; }
-      .card-title { font-size: 1.2rem; }
-      .card-icon { font-size: 2.4rem; }
-      main { padding-top: 170px; }
-    }
-  </style>
+  <meta name="description" content="Conheça os serviços da Kise Studios: sites, sistemas web, integrações, automações e consultoria digital.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#f4efe5">
+  <link rel="canonical" href="https://www.kisestudio.com.br/services.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Serviços | Kise Studios">
+  <meta property="og:description" content="Soluções digitais sob medida para transformar processos, presença online e resultados.">
+  <meta property="og:url" content="https://www.kisestudio.com.br/services.html">
+  <title>Serviços de tecnologia | Kise Studios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
-
 <body>
-  <!-- HEADER IGUAL AO INDEX -->
-  <header class="navbar">
-    <nav class="nav-links">
-      <a href="index.html">Início</a>
-      <a href="services.html" class="active">Serviços</a>
-      <a href="projects.html">Projetos</a>
-      <a href="contact.html">Contato</a>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Navegação principal">
+      <a class="brand" href="index.html" aria-label="Kise Studios - Início"><span class="brand-mark">KS</span><span class="brand-name">Kise Studios</span></a>
+      <ul class="nav-links">
+        <li><a class="nav-link" href="index.html">Início</a></li>
+        <li><a class="nav-link active" href="services.html" aria-current="page">Serviços</a></li>
+        <li><a class="nav-link" href="projects.html">Projetos</a></li>
+        <li><a class="nav-link" href="contact.html">Contato</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a class="button button-primary button-small nav-cta" href="contact.html">Solicitar proposta</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Abrir menu"><span></span></button>
+      </div>
     </nav>
   </header>
 
-  <!-- CONTEÚDO PRINCIPAL -->
-  <main>
+  <main class="page-main">
+    <section class="page-hero">
+      <div class="container reveal">
+        <span class="eyebrow">Nossos serviços</span>
+        <h1>Soluções digitais para <span class="gradient-text">simplificar e crescer.</span></h1>
+        <p>Cada projeto combina estratégia, design e desenvolvimento para resolver uma necessidade real do seu negócio.</p>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="container service-list">
+        <article class="service-row reveal" id="web">
+          <div>
+            <div class="card-icon">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M3 5.5h18v13H3zM3 9h18M7 7.2h.01M10 7.2h.01"/></svg>
+            </div>
+            <h2>Sites e landing pages</h2>
+          </div>
+          <div>
+            <p>Criamos sites institucionais e páginas de campanha que comunicam valor com clareza, carregam rápido e funcionam perfeitamente em qualquer tela.</p>
+            <ul class="service-features">
+              <li>Design responsivo</li>
+              <li>SEO técnico básico</li>
+              <li>Foco em conversão</li>
+              <li>Performance otimizada</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="service-row reveal" id="systems">
+          <div>
+            <div class="card-icon">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M4 6h16v12H4zM8 21h8M12 18v3M8 10h8M8 14h5"/></svg>
+            </div>
+            <h2>Sistemas web</h2>
+          </div>
+          <div>
+            <p>Desenvolvemos painéis administrativos, portais e ferramentas internas alinhados aos processos da sua equipe e preparados para evoluir.</p>
+            <ul class="service-features">
+              <li>Painéis de gestão</li>
+              <li>Áreas de cliente</li>
+              <li>Fluxos personalizados</li>
+              <li>Relatórios e indicadores</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="service-row reveal" id="integrations">
+          <div>
+            <div class="card-icon">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M8 7V4m8 3V4M5 10h14M6 7h12a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm3 7 2 2 4-4"/></svg>
+            </div>
+            <h2>Automações e integrações</h2>
+          </div>
+          <div>
+            <p>Conectamos sistemas e automatizamos tarefas repetitivas para reduzir erros, economizar tempo e tornar a operação mais eficiente.</p>
+            <ul class="service-features">
+              <li>Integração com APIs</li>
+              <li>Automação de rotinas</li>
+              <li>Sincronização de dados</li>
+              <li>Notificações inteligentes</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="service-row reveal" id="consulting">
+          <div>
+            <div class="card-icon">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M12 3a7 7 0 0 0-4 12.74V19h8v-3.26A7 7 0 0 0 12 3ZM9 22h6M9 12h6"/></svg>
+            </div>
+            <h2>Consultoria digital</h2>
+          </div>
+          <div>
+            <p>Avaliamos ideias, experiências e processos para definir prioridades e transformar objetivos de negócio em um plano técnico viável.</p>
+            <ul class="service-features">
+              <li>Diagnóstico técnico</li>
+              <li>Arquitetura de solução</li>
+              <li>UX e jornada do usuário</li>
+              <li>Planejamento de evolução</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <section class="section">
       <div class="container">
-        <h1 class="section-title">Nossos Serviços</h1>
+        <div class="section-heading-center reveal">
+          <span class="eyebrow">Nosso processo</span>
+          <h2>Clareza em cada etapa do projeto.</h2>
+          <p>Você acompanha as decisões e entregas desde o primeiro alinhamento até a publicação.</p>
+        </div>
+        <div class="process-grid">
+          <article class="process-step reveal"><span class="process-index">01</span><h3>Briefing</h3><p>Mapeamos cenário, objetivos e requisitos essenciais.</p></article>
+          <article class="process-step reveal"><span class="process-index">02</span><h3>Proposta</h3><p>Organizamos escopo, etapas, prazo e investimento.</p></article>
+          <article class="process-step reveal"><span class="process-index">03</span><h3>Execução</h3><p>Construímos e validamos a solução em ciclos claros.</p></article>
+          <article class="process-step reveal"><span class="process-index">04</span><h3>Entrega</h3><p>Testamos, publicamos e orientamos os próximos passos.</p></article>
+        </div>
+      </div>
+    </section>
 
-        <div class="cards-grid">
-          <div class="card service-card">
-            <div class="card-icon">🌐</div>
-            <h3 class="card-title">Desenvolvimento Web</h3>
-            <p class="card-text">
-              Sites institucionais, e-commerce e portais personalizados, com design moderno e otimização SEO.
-            </p>
-          </div>
-
-          <div class="card service-card">
-            <div class="card-icon">🧩</div>
-            <h3 class="card-title">Integrações</h3>
-            <p class="card-text">
-              Conectamos sistemas, APIs e ferramentas diversas, garantindo interoperabilidade e automação.
-            </p>
-          </div>
-
-          <div class="card service-card">
-            <div class="card-icon">🏦</div>
-            <h3 class="card-title">Banco de Dados</h3>
-            <p class="card-text">
-              Gerenciamento e otimização de bancos de dados, garantindo performance e segurança.
-            </p>
-          </div>
+    <section class="section">
+      <div class="container">
+        <div class="cta-panel reveal">
+          <div><h2>Qual desafio sua empresa precisa resolver?</h2><p>Converse com a gente e receba uma orientação inicial sobre o melhor caminho.</p></div>
+          <a class="button button-whatsapp" data-whatsapp target="_blank" rel="noopener noreferrer" href="https://wa.me/">Falar no WhatsApp</a>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="footer">
+  <footer class="site-footer">
     <div class="container">
-      <p>&copy; <span id="year"></span> Kise Studios. Todos os direitos reservados.</p>
+      <div class="footer-grid">
+        <div class="footer-about"><a class="brand" href="index.html"><span class="brand-mark">KS</span><span>Kise Studios</span></a><p>Soluções digitais sob medida para empresas que querem trabalhar melhor e crescer com tecnologia.</p></div>
+        <div class="footer-column"><h3>Navegação</h3><ul class="footer-links"><li><a href="index.html">Início</a></li><li><a href="services.html">Serviços</a></li><li><a href="projects.html">Projetos</a></li><li><a href="contact.html">Contato</a></li></ul></div>
+        <div class="footer-column"><h3>Vamos conversar</h3><ul class="footer-links"><li><a data-whatsapp target="_blank" rel="noopener noreferrer" href="https://wa.me/">WhatsApp</a></li><li><a href="contact.html">Solicitar orçamento</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>© <span data-year></span> Kise Studios. Todos os direitos reservados.</p><span>Design e tecnologia com propósito.</span></div>
     </div>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Navbar reativa ao scroll (igual ao index)
-    window.addEventListener("scroll", () => {
-      const nav = document.querySelector(".navbar");
-      nav.classList.toggle("scrolled", window.scrollY > 80);
-    });
-  </script>
+  <a class="whatsapp-float" data-whatsapp target="_blank" rel="noopener noreferrer" href="https://wa.me/" aria-label="Falar com a Kise Studios no WhatsApp">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a9.84 9.84 0 0 0-8.45 14.87L2.05 22l5.25-1.5A9.95 9.95 0 1 0 12.04 2Zm5.8 13.92c-.25.72-1.47 1.37-2.03 1.45-.52.08-1.18.11-1.91-.12-.44-.14-1.01-.33-1.74-.65-3.06-1.32-5.05-4.4-5.2-4.6-.15-.2-1.24-1.64-1.24-3.13s.78-2.23 1.06-2.53c.28-.3.61-.37.81-.37h.59c.19 0 .44-.07.69.53.25.6.84 2.05.91 2.2.08.15.13.33.03.53-.1.2-.15.33-.3.51-.15.18-.31.4-.45.54-.15.15-.3.31-.13.61.18.3.78 1.28 1.67 2.07 1.15 1.02 2.11 1.34 2.41 1.49.3.15.48.13.66-.08.18-.2.76-.89.96-1.19.2-.3.4-.25.68-.15.28.1 1.77.84 2.07.99.3.15.5.23.58.35.07.13.07.73-.18 1.45Z"/></svg>
+  </a>
 </body>
 </html>
