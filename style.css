@@ -490,11 +490,14 @@ h3 {
 .studio-monogram {
   position: relative;
   z-index: 4;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(7rem, 13vw, 11rem);
-  font-weight: 600;
-  letter-spacing: -0.16em;
-  line-height: 0.8;
+  display: block;
+  width: min(76%, 275px);
+  line-height: 0;
+}
+
+.studio-monogram img {
+  width: 100%;
+  height: auto;
 }
 
 .studio-signature {
