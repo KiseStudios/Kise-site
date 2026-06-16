@@ -426,7 +426,8 @@ h3 {
   transform: translate3d(0, 0, 0);
   will-change: transform;
   transition: border-color 0.35s ease, box-shadow 0.35s ease, background-color 0.35s ease;
-  animation: studio-card-float 7s ease-in-out infinite;
+  /* Efeito de sobe/desce do card comentado para manter o card estático. */
+  /* animation: studio-card-float 7s ease-in-out infinite; */
   isolation: isolate;
 }
 
@@ -454,71 +455,6 @@ h3 {
   content: "";
   opacity: 0.72;
   z-index: 3;
-  pointer-events: none;
-}
-
-/* Animated aurora blobs contained inside the black card. */
-.ks-card-blob-bg {
-  position: absolute;
-  inset: -12%;
-  z-index: 1;
-  overflow: hidden;
-  border-radius: inherit;
-  filter: blur(60px);
-  opacity: 0.78;
-  pointer-events: none;
-}
-
-.ks-blob {
-  position: absolute;
-  display: block;
-  width: 58%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  mix-blend-mode: screen;
-  opacity: 0.82;
-  transform: translate3d(0, 0, 0);
-  will-change: transform;
-}
-
-.ks-blob-orange {
-  top: -8%;
-  right: 3%;
-  background: radial-gradient(circle, rgba(232, 106, 35, 0.9) 0 18%, rgba(232, 106, 35, 0.42) 42%, transparent 72%);
-  animation: ks-blob-orange 19s ease-in-out infinite;
-}
-
-.ks-blob-coral {
-  top: 22%;
-  left: -12%;
-  background: radial-gradient(circle, rgba(244, 89, 126, 0.74) 0 18%, rgba(244, 89, 126, 0.36) 44%, transparent 73%);
-  animation: ks-blob-coral 23s ease-in-out infinite -6s;
-}
-
-.ks-blob-blue {
-  right: -16%;
-  bottom: -10%;
-  background: radial-gradient(circle, rgba(87, 170, 202, 0.7) 0 16%, rgba(87, 170, 202, 0.3) 45%, transparent 72%);
-  animation: ks-blob-blue 21s ease-in-out infinite -11s;
-}
-
-.ks-blob-white {
-  top: 30%;
-  left: 34%;
-  width: 34%;
-  background: radial-gradient(circle, rgba(255, 250, 236, 0.82) 0 13%, rgba(255, 250, 236, 0.26) 38%, transparent 68%);
-  animation: ks-blob-white 16s ease-in-out infinite -3s;
-}
-
-/* Subtle grain overlay to keep the gradients from feeling too smooth. */
-.ks-card-grain {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.42'/%3E%3C/svg%3E");
-  background-size: 140px 140px;
-  mix-blend-mode: overlay;
-  opacity: 0.07;
   pointer-events: none;
 }
 
@@ -553,30 +489,6 @@ h3 {
   font-size: 0.66rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-}
-
-@keyframes ks-blob-orange {
-  0% { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
-  50% { transform: translate3d(-34%, 24%, 0) scale(1.18) rotate(32deg); }
-  100% { transform: translate3d(-12%, 48%, 0) scale(0.92) rotate(82deg); }
-}
-
-@keyframes ks-blob-coral {
-  0% { transform: translate3d(0, 0, 0) scale(0.96) rotate(0deg); }
-  50% { transform: translate3d(52%, -16%, 0) scale(1.22) rotate(-28deg); }
-  100% { transform: translate3d(34%, 38%, 0) scale(1.02) rotate(-72deg); }
-}
-
-@keyframes ks-blob-blue {
-  0% { transform: translate3d(0, 0, 0) scale(1.02) rotate(0deg); }
-  50% { transform: translate3d(-42%, -34%, 0) scale(1.16) rotate(45deg); }
-  100% { transform: translate3d(-18%, -54%, 0) scale(0.94) rotate(95deg); }
-}
-
-@keyframes ks-blob-white {
-  0% { transform: translate3d(0, 0, 0) scale(0.9) rotate(0deg); }
-  50% { transform: translate3d(18%, -22%, 0) scale(1.25) rotate(20deg); }
-  100% { transform: translate3d(-28%, 18%, 0) scale(0.98) rotate(58deg); }
 }
 
 .studio-note {
@@ -1517,11 +1429,6 @@ h3 {
     padding: 34px;
   }
 
-  .ks-card-blob-bg {
-    inset: -16%;
-    filter: blur(52px);
-  }
-
   .studio-note {
     width: min(88%, 340px);
     padding: 22px 24px;
@@ -1644,20 +1551,6 @@ h3 {
     padding: 28px;
   }
 
-  .ks-card-blob-bg {
-    inset: -20%;
-    filter: blur(44px);
-    opacity: 0.72;
-  }
-
-  .ks-blob {
-    width: 64%;
-  }
-
-  .ks-blob-white {
-    width: 38%;
-  }
-
   .studio-signature strong {
     font-size: 1.45rem;
   }
@@ -1693,13 +1586,5 @@ h3 {
 
   .studio-card {
     animation: none;
-  }
-
-  .ks-blob {
-    animation: none;
-  }
-
-  .ks-card-blob-bg {
-    opacity: 0.58;
   }
 }
