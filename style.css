@@ -457,22 +457,9 @@ h3 {
   pointer-events: none;
 }
 
-.studio-logo,
 .studio-monogram {
   position: relative;
   z-index: 4;
-}
-
-.studio-logo {
-  display: block;
-  width: clamp(13.5rem, 52%, 18.5rem);
-  height: auto;
-  margin: -10px 0 0 -12px;
-  user-select: none;
-  pointer-events: none;
-}
-
-.studio-monogram {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: clamp(7rem, 13vw, 11rem);
   font-weight: 600;
@@ -1564,11 +1551,6 @@ h3 {
 
   .studio-card {
     padding: 28px;
-  }
-
-  .studio-logo {
-    width: clamp(11rem, 62%, 15rem);
-    margin: -6px 0 0 -8px;
   }
 
   .studio-signature strong {
