@@ -426,8 +426,7 @@ h3 {
   transform: translate3d(0, 0, 0);
   will-change: transform;
   transition: border-color 0.35s ease, box-shadow 0.35s ease, background-color 0.35s ease;
-  /* Efeito de sobe/desce do card comentado para manter o card estático. */
-  /* animation: studio-card-float 7s ease-in-out infinite; */
+  animation: studio-card-float 8.5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
   isolation: isolate;
 }
 
@@ -458,9 +457,22 @@ h3 {
   pointer-events: none;
 }
 
+.studio-logo,
 .studio-monogram {
   position: relative;
   z-index: 4;
+}
+
+.studio-logo {
+  display: block;
+  width: clamp(13.5rem, 52%, 18.5rem);
+  height: auto;
+  margin: -10px 0 0 -12px;
+  user-select: none;
+  pointer-events: none;
+}
+
+.studio-monogram {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: clamp(7rem, 13vw, 11rem);
   font-weight: 600;
@@ -515,13 +527,16 @@ h3 {
 }
 
 @keyframes studio-card-float {
-  0%,
-  100% {
+  0% {
     transform: translate3d(0, 0, 0);
   }
 
   50% {
-    transform: translate3d(0, -6px, 0);
+    transform: translate3d(0, -7px, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -1549,6 +1564,11 @@ h3 {
 
   .studio-card {
     padding: 28px;
+  }
+
+  .studio-logo {
+    width: clamp(11rem, 62%, 15rem);
+    margin: -6px 0 0 -8px;
   }
 
   .studio-signature strong {
