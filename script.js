@@ -1,9 +1,9 @@
-const WHATSAPP_NUMBER = "";
+const WHATSAPP_NUMBER = "+5527997327212";
 const WHATSAPP_MESSAGE = "Olá! Vim pelo site da Kise Studios e gostaria de conversar sobre um projeto.";
 
 function buildWhatsAppUrl() {
   const number = WHATSAPP_NUMBER.replace(/\D/g, "");
-  const base = number ? `https://wa.me/${number}` : "https://wa.me/";
+  const base = `https://wa.me/${number}`;
   return `${base}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 }
 
