@@ -3,8 +3,12 @@ const WHATSAPP_MESSAGE = "Olá! Vim pelo site da Kise Studios e gostaria de conv
 
 function buildWhatsAppUrl() {
   const number = WHATSAPP_NUMBER.replace(/\D/g, "");
-  const base = `https://wa.me/${number}`;
-  return `${base}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+  const params = new URLSearchParams({
+    phone: number,
+    text: WHATSAPP_MESSAGE
+  });
+
+  return `https://api.whatsapp.com/send?${params.toString()}`;
 }
 
 document.querySelectorAll("[data-whatsapp]").forEach((link) => {
