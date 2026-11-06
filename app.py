@@ -13,6 +13,12 @@ class SilentHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         # Override to silence default logging output
         pass
 
+
+class PreviewServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
+    allow_reuse_address = True
+    daemon_threads = True
+
+
 def run_server(port: int = 8000):
     """
     Starts a basic HTTP server on the specified port. This server
@@ -20,7 +26,7 @@ def run_server(port: int = 8000):
     """
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
     handler = SilentHTTPRequestHandler
-    with socketserver.TCPServer(("", port), handler) as httpd:
+    with PreviewServer(("", port), handler) as httpd:
         print(f"Servidor executando em http://localhost:{port}")
         try:
             httpd.serve_forever()
