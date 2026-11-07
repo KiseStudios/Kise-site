@@ -47,15 +47,11 @@
     h1 .accent { display: inline-block; width: auto; color: var(--acid); margin-left: .52em; }
     .hero-sub { font-size: clamp(1.6rem, 3.2vw, 3.3rem); max-width: 680px; letter-spacing: -.07em; line-height: .95; }
     .hero-sub strong { color: var(--acid); font-weight: 500; }
-    .ks-stage { align-self: center; justify-self: center; width: min(45vw, 620px); aspect-ratio: 1; position: relative; display: grid; place-items: center; perspective: 900px; }
-    .ks-stage::after { content: "KISE / ORIGINAL MARK"; position: absolute; right: 7%; bottom: 8%; color: var(--muted); font: 10px var(--mono); letter-spacing: .12em; }
-    .ks-bubble { position: relative; z-index: 1; width: 66%; aspect-ratio: 1; overflow: hidden; border: 1px solid rgba(242,240,233,.48); border-radius: 50%; background: radial-gradient(circle at 32% 24%, rgba(255,255,255,.28), transparent 18%), radial-gradient(circle at 70% 76%, rgba(184,255,39,.16), transparent 42%), rgba(242,240,233,.045); box-shadow: inset -18px -24px 38px rgba(0,0,0,.22), inset 12px 10px 24px rgba(255,255,255,.08), 0 24px 55px rgba(0,0,0,.28); transform-style: preserve-3d; will-change: transform; transition: box-shadow .4s, border-color .4s; }
-    .ks-bubble::before { position: absolute; inset: 8%; border: 1px solid rgba(255,255,255,.24); border-radius: 50%; content: ""; pointer-events: none; }
-    .ks-bubble::after { position: absolute; top: 12%; left: 18%; width: 34%; height: 15%; border-radius: 50%; background: rgba(255,255,255,.22); content: ""; filter: blur(7px); transform: rotate(-25deg); pointer-events: none; }
-    .ks-bubble:hover { border-color: var(--acid); box-shadow: inset -18px -24px 38px rgba(0,0,0,.18), inset 12px 10px 24px rgba(255,255,255,.12), 0 30px 65px rgba(0,0,0,.36); }
-    .ks-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-    .ks-fallback { position: absolute; inset: 14%; z-index: 1; width: 72%; height: auto; margin: auto; object-fit: contain; filter: drop-shadow(0 22px 18px rgba(0,0,0,.35)); }
-    .ks-bubble.is-ready .ks-fallback { display: none; }
+    .ks-stage { align-self: center; justify-self: center; width: min(52vw, 680px); min-width: 480px; aspect-ratio: 1; position: relative; display: grid; place-items: center; perspective: 900px; overflow: visible; }
+    .ks-stage::after { content: none; }
+    .ks-bubble { position: relative; z-index: 1; width: 100%; aspect-ratio: 1; display: block; overflow: visible; transform-style: preserve-3d; }
+    .ks-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; overflow: visible; }
+    .ks-meta { position: absolute; right: 7%; top: 9%; color: var(--muted); font: 10px var(--mono); letter-spacing: .1em; }
     .ks-hint { position: absolute; left: 12%; bottom: 12%; color: var(--muted); font: 10px var(--mono); letter-spacing: .08em; }
     .ks-stage.is-scroll-animated { will-change: transform; z-index: 1; }
     .hero-cta { position: absolute; right: 5vw; bottom: 4vh; width: 120px; height: 120px; border-radius: 50%; background: var(--paper); color: var(--ink); display: grid; place-items: center; text-align: center; font: 11px var(--mono); line-height: 1.25; transition: transform .3s, background .3s; }
@@ -105,7 +101,7 @@
       .nav { gap: 12px; }
       .clock { display: none; }
       .hero { display: block; padding: 120px 5vw 35px; }
-      .ks-stage { width: 92vw; margin: 35px auto 15px; }
+      .ks-stage { width: 100vw; min-width: 0; margin: 35px auto 15px; }
       .hero-cta { width: 92px; height: 92px; right: 7vw; bottom: 3vh; font-size: 9px; }
       .scroll-note { left: 5vw; }
       section { padding: 100px 5vw; }
@@ -140,8 +136,9 @@
         <h1 class="reveal"><span>kise</span><span class="accent">*</span></h1>
         <p class="hero-sub reveal">Desenvolvemos para você <strong>voltar.</strong></p>
       </div>
-      <div class="ks-stage reveal" aria-label="Logo KS interativa">
-        <span class="ks-bubble"><canvas class="ks-canvas" aria-label="Animação 3D do logo KS"></canvas><img class="ks-fallback" src="assets/ks.logo.png" alt="Logo original KS da Kise"></span>
+      <div class="ks-stage reveal" aria-label="Asterisco 3D interativo da Kise">
+        <span class="ks-bubble"><canvas class="ks-canvas" aria-label="Engrenagem 3D branca interativa"></canvas></span>
+        <span class="ks-meta">KISE / GEAR 001</span>
         <span class="ks-hint">mova o cursor / toque</span>
       </div>
       <a class="hero-cta magnetic" href="https://api.whatsapp.com/send?phone=5527997327212" target="_blank" rel="noopener noreferrer">COMEÇAR<br>UM PROJETO ↗</a>
@@ -209,94 +206,157 @@
     });
 
     const ksStage = document.querySelector(".ks-stage");
-    const ksBubble = document.querySelector(".ks-bubble");
-    if (ksStage && ksBubble) {
-      const moveBubbleX = gsap.quickTo(ksBubble, "x", { duration: .65, ease: "power3.out" });
-      const moveBubbleY = gsap.quickTo(ksBubble, "y", { duration: .65, ease: "power3.out" });
-      const rotateBubble = gsap.quickTo(ksBubble, "rotation", { duration: .8, ease: "power3.out" });
-      ksStage.addEventListener("pointermove", (event) => {
-        const bounds = ksStage.getBoundingClientRect();
-        const x = ((event.clientX - bounds.left) / bounds.width) * 2 - 1;
-        const y = ((event.clientY - bounds.top) / bounds.height) * 2 - 1;
-        moveBubbleX(x * 12);
-        moveBubbleY(y * 12);
-        rotateBubble(x * 5);
-      });
-      ksStage.addEventListener("pointerleave", () => {
-        moveBubbleX(0); moveBubbleY(0); rotateBubble(0);
-      });
-    }
 
     const ksCanvas = document.querySelector(".ks-canvas");
     if (ksCanvas && window.THREE) {
       const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(35, 1, .1, 100);
-      camera.position.z = 6;
+      const camera = new THREE.PerspectiveCamera(32, 1, .1, 100);
+      camera.position.z = 12;
       const renderer = new THREE.WebGLRenderer({ canvas: ksCanvas, alpha: true, antialias: true });
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       renderer.setClearColor(0x000000, 0);
 
       const world = new THREE.Group();
-      const bubble = new THREE.Mesh(
-        new THREE.SphereGeometry(1.7, 32, 24),
-        new THREE.MeshBasicMaterial({ color: 0xb8ff27, wireframe: true, transparent: true, opacity: .2 })
-      );
-      const ring = new THREE.Mesh(
-        new THREE.TorusGeometry(2.05, .012, 8, 96),
-        new THREE.MeshBasicMaterial({ color: 0xf2f0e9, transparent: true, opacity: .55 })
-      );
-      const texture = new THREE.TextureLoader().load("assets/ks.logo.png", () => {
-        ksBubble.classList.add("is-ready");
+      const acid = 0xb8ff27;
+      const paper = 0xf2f0e9;
+      const handLine = (color, opacity) => new THREE.LineBasicMaterial({ color, transparent: true, opacity, depthTest: false });
+      const gear = new THREE.Group();
+      const gearShape = new THREE.Shape();
+      const toothCount = 12;
+      const outerRadius = 1.58;
+      const rootRadius = 1.18;
+      for (let index = 0; index < toothCount * 4; index += 1) {
+        const angle = index / (toothCount * 4) * Math.PI * 2;
+        const radius = index % 4 < 2 ? outerRadius : rootRadius;
+        const point = new THREE.Vector2(Math.cos(angle) * radius, Math.sin(angle) * radius);
+        if (index === 0) gearShape.moveTo(point.x, point.y);
+        else gearShape.lineTo(point.x, point.y);
+      }
+      gearShape.closePath();
+      const gearHole = new THREE.Path();
+      gearHole.absellipse(0, 0, .48, .48, 0, Math.PI * 2, false, 0);
+      gearShape.holes.push(gearHole);
+      const gearGeometry = new THREE.ExtrudeGeometry(gearShape, {
+        depth: .34,
+        bevelEnabled: true,
+        bevelSegments: 2,
+        bevelSize: .045,
+        bevelThickness: .04
       });
-      const logo = new THREE.Sprite(new THREE.SpriteMaterial({ map: texture, transparent: true, depthTest: false }));
-      logo.scale.set(2.5, 2.5, 1);
+      gearGeometry.center();
+      const gearMesh = new THREE.Mesh(
+        gearGeometry,
+        new THREE.MeshBasicMaterial({ color: paper, transparent: true, opacity: .96 })
+      );
+      const gearEdges = new THREE.LineSegments(
+        new THREE.EdgesGeometry(gearGeometry),
+        handLine(0x050505, .8)
+      );
+      gear.add(gearMesh, gearEdges);
+      gear.rotation.x = -.16;
+      world.add(gear);
+
+      const makeOrbit = (radius, color, opacity, tilt) => {
+        const points = [];
+        for (let index = 0; index <= 128; index += 1) {
+          const angle = index / 128 * Math.PI * 2;
+          const noise = Math.sin(angle * 5 + .4) * .045 + Math.sin(angle * 9) * .026;
+          const currentRadius = radius + noise;
+          points.push(new THREE.Vector3(Math.cos(angle) * currentRadius, Math.sin(angle) * currentRadius, 0));
+        }
+        const line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), handLine(color, opacity));
+        line.rotation.x = tilt;
+        return line;
+      };
+      const orbitPaper = makeOrbit(3.05, paper, .35, 0);
+      const orbitAcid = makeOrbit(3.18, acid, .24, .48);
+      world.add(orbitPaper, orbitAcid);
+
+      const crossGroup = new THREE.Group();
+      const crossMaterial = handLine(acid, .65);
+      for (let index = 0; index < 4; index += 1) {
+        const cross = new THREE.Group();
+        cross.add(
+          new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(-.07, 0, 0), new THREE.Vector3(.07, 0, 0)]), crossMaterial),
+          new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0, -.07, 0), new THREE.Vector3(0, .07, 0)]), crossMaterial)
+        );
+        const angle = index * Math.PI / 2 + .2;
+        cross.position.set(Math.cos(angle) * 3.08, Math.sin(angle) * 3.08, .03);
+        crossGroup.add(cross);
+      }
+      world.add(crossGroup);
+
       const particleCount = 180;
       const particlePositions = new Float32Array(particleCount * 3);
       for (let index = 0; index < particleCount; index += 1) {
-        const radius = 1.9 + Math.random() * .65;
+        const radius = 2.15 + Math.random() * .7;
         const angle = Math.random() * Math.PI * 2;
         particlePositions[index * 3] = Math.cos(angle) * radius;
-        particlePositions[index * 3 + 1] = (Math.random() - .5) * 3.8;
-        particlePositions[index * 3 + 2] = (Math.random() - .5) * 1.6;
+        particlePositions[index * 3 + 1] = Math.sin(angle) * radius * .75;
+        particlePositions[index * 3 + 2] = (Math.random() - .5) * .8;
       }
       const particleGeometry = new THREE.BufferGeometry();
       particleGeometry.setAttribute("position", new THREE.BufferAttribute(particlePositions, 3));
       const particles = new THREE.Points(
         particleGeometry,
-        new THREE.PointsMaterial({ color: 0xb8ff27, size: .025, transparent: true, opacity: .7 })
+        new THREE.PointsMaterial({ color: acid, size: .022, transparent: true, opacity: .65, depthWrite: false })
       );
-      world.add(bubble, ring, logo, particles);
+      world.add(particles);
       scene.add(world);
 
       const resize = () => {
-        const bounds = ksBubble.getBoundingClientRect();
+        const bounds = ksStage.getBoundingClientRect();
         renderer.setSize(bounds.width, bounds.height, false);
         camera.aspect = bounds.width / bounds.height;
         camera.updateProjectionMatrix();
       };
-      const scrollState = { progress: 0, journey: 0 };
+      const scrollState = { progress: 0, target: 0, pointerX: 0, pointerY: 0 };
       const updateScroll = () => {
         const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-        scrollState.progress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+        scrollState.target = maxScroll > 0 ? window.scrollY / maxScroll : 0;
       };
       const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      document.addEventListener("pointermove", (event) => {
+        scrollState.pointerX = (event.clientX / window.innerWidth) * 2 - 1;
+        scrollState.pointerY = (event.clientY / window.innerHeight) * 2 - 1;
+      });
+      document.addEventListener("pointerleave", () => {
+        scrollState.pointerX = 0;
+        scrollState.pointerY = 0;
+      });
       window.addEventListener("resize", resize);
       window.addEventListener("scroll", updateScroll, { passive: true });
       resize();
       updateScroll();
       const animateThree = (time) => {
         const elapsed = time * .001;
-        const progress = prefersReducedMotion ? 0 : scrollState.journey;
-        world.rotation.y = elapsed * .18 + progress * Math.PI * 2;
-        world.rotation.x = Math.sin(elapsed * .45) * .12 + progress * .45;
-        ring.rotation.z = elapsed * .3 + progress * Math.PI;
-        particles.rotation.y = -elapsed * .08;
-        logo.position.y = Math.sin(elapsed * .8) * .08;
-        logo.material.opacity = Math.max(.08, 1 - progress * 1.15);
-        particles.material.opacity = .7 - progress * .3;
+        const targetProgress = prefersReducedMotion ? 0 : scrollState.target;
+        scrollState.progress += (targetProgress - scrollState.progress) * .12;
+        const progress = scrollState.progress;
+        world.rotation.z = elapsed * .08 + progress * Math.PI * 2;
+        world.rotation.x = scrollState.pointerY * .12;
+        world.rotation.y = scrollState.pointerX * .16;
+        world.position.y = Math.sin(elapsed * .7) * .035;
+        gear.rotation.y = Math.sin(elapsed * .6) * .08;
+        gear.rotation.z = elapsed * .22;
+        orbitPaper.rotation.z = progress * .5;
+        orbitAcid.rotation.z = -progress * .8;
+        crossGroup.rotation.z = elapsed * .08;
+        particles.rotation.z = -progress * .5;
+        world.scale.setScalar(1 - progress * .68);
+        world.traverse((object) => {
+          if (object.material && object.material.opacity !== undefined) {
+            object.material.opacity = Math.max(0, object.material.userData.baseOpacity * (1 - progress * 1.15));
+          }
+        });
         renderer.render(scene, camera);
         requestAnimationFrame(animateThree);
       };
+      world.traverse((object) => {
+        if (object.material && object.material.opacity !== undefined) {
+          object.material.userData.baseOpacity = object.material.opacity;
+        }
+      });
       requestAnimationFrame(animateThree);
 
       if (window.gsap && window.ScrollTrigger && !prefersReducedMotion) {
@@ -318,10 +378,10 @@
             start: "top top",
             endTrigger: ".we-are",
             end: "bottom bottom",
-            scrub: 1.35,
+            scrub: .8,
             invalidateOnRefresh: true,
             onUpdate: (self) => {
-              scrollState.journey = self.progress;
+              scrollState.target = self.progress;
             }
           }
         })
@@ -330,7 +390,7 @@
             x: () => Math.min(window.innerWidth * .2, 280),
             y: () => window.innerHeight * -.3,
             scale: .62,
-            rotation: 18,
+            rotation: 0,
             duration: .35,
             ease: "none"
           })
@@ -338,7 +398,7 @@
             x: () => Math.max(window.innerWidth * -.08, -100),
             y: () => window.innerHeight * -.2,
             scale: .54,
-            rotation: -24,
+            rotation: 0,
             duration: .35,
             ease: "none"
           })
@@ -346,7 +406,7 @@
             x: () => window.innerWidth * .08,
             y: () => window.innerHeight * -.25,
             scale: .38,
-            rotation: 360,
+            rotation: 0,
             duration: .2,
             ease: "none"
           })
