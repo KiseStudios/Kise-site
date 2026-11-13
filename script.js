@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = "5527997327212";
+const WHATSAPP_NUMBER = "5527996437479";
 const WHATSAPP_MESSAGE = "Olá! Vim pelo site da Kise Studios e gostaria de conversar sobre um projeto.";
 
 function buildWhatsAppUrl() {
