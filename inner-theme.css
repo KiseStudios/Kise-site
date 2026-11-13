@@ -359,6 +359,10 @@ body.inner-page::before {
   font: 11px "DM Mono", monospace;
 }
 
+.inner-page .section-soft .form-group label {
+  color: var(--inner-ink);
+}
+
 .inner-page .form-group input,
 .inner-page .form-group select,
 .inner-page .form-group textarea {
@@ -368,9 +372,34 @@ body.inner-page::before {
   color: var(--inner-paper);
 }
 
+.inner-page .section-soft .form-group input,
+.inner-page .section-soft .form-group select,
+.inner-page .section-soft .form-group textarea {
+  border-color: rgba(10, 10, 9, .28);
+  background: rgba(255, 255, 255, .48);
+  color: var(--inner-ink);
+}
+
+.inner-page .section-soft .form-group input:focus,
+.inner-page .section-soft .form-group select:focus,
+.inner-page .section-soft .form-group textarea:focus {
+  border-color: var(--inner-orange);
+  box-shadow: 0 0 0 3px rgba(255, 84, 56, .14);
+}
+
 .inner-page .form-group input::placeholder,
 .inner-page .form-group textarea::placeholder {
   color: var(--inner-muted);
+}
+
+.inner-page .section-soft .form-group input::placeholder,
+.inner-page .section-soft .form-group textarea::placeholder {
+  color: #565650;
+}
+
+.inner-page .section-soft .form-group select option {
+  background: var(--inner-paper);
+  color: var(--inner-ink);
 }
 
 .inner-page .form-note {
