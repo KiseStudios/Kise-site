@@ -394,11 +394,16 @@ body.inner-page::before {
 
 .inner-page .section-soft .form-group input::placeholder,
 .inner-page .section-soft .form-group textarea::placeholder {
-  color: #565650;
+  color: var(--inner-ink);
+  opacity: 1;
 }
 
 .inner-page .section-soft .form-group select option {
   background: var(--inner-paper);
+  color: var(--inner-ink);
+}
+
+.inner-page .section-soft .form-note {
   color: var(--inner-ink);
 }
 
